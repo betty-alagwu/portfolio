@@ -4,7 +4,7 @@ import 'react-tooltip/dist/react-tooltip.css'
 import { About, Footer, Skill, Testimonial, Work, } from '@/container/'
 import { Navbar } from '@/components/Navbar'
 import { Header } from '../container'
-import { fetchAllCollection } from 'contentful/graphql-client'
+import { fetchAllCollection } from '@/contentful/graphql-client'
 import {
   About as AboutInterface,
   Work as WorkInterface,
@@ -15,7 +15,7 @@ import {
   Brand as BrandInterface,
   ContactIput as ContactInterface
 } from 'types/types'
-import { createEntry } from 'contentful/contactEntry'
+import { createEntry } from '@/contentful/contactEntry'
 
 
 export interface HomePageProps {
@@ -51,7 +51,7 @@ const HomePage = ({
       />
       <Testimonial data={testimonialSectionResults}
         brands={brandSectionResults} />
-      <Footer data={contactResult}/>
+      <Footer data={contactResult} />
     </div>
   )
 }

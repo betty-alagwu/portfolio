@@ -3,7 +3,7 @@ import AppWrap from "../../wrapper/AppWrap"
 import MotionWrap from "../../wrapper/motionWrap"
 import { images } from '../../constants';
 import { ContactIput as ContactInterface } from 'types/types';
-import  {createEntry}  from '../../../contentful/contactEntry';
+import { createEntry } from '../../contentful/contactEntry';
 
 export interface ContactProps {
     data: ContactInterface[]
