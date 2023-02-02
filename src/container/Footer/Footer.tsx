@@ -12,19 +12,19 @@ export interface ContactProps {
 
 
 const Footer = ({ data }: ContactProps) => {
-    console.log({data}, 'this is the contact data')
+    console.log({ data }, 'this is the contact data')
     const [isFormSubmitted, setIsFormSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({ username: '', email: '', message: '' });
 
-   const {username, email, message} = formData
+    const { username, email, message } = formData
 
 
 
-   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value }); 
-  };
+    const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+    };
 
 
     const handleSubmit = async () => {
@@ -83,4 +83,4 @@ export default AppWrap(
     MotionWrap(Footer, 'app__footer'),
     'contact',
     'app__whitebg',
-  );
+);

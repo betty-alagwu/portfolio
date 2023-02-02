@@ -31,7 +31,7 @@ const Skill = ({ data, experiences, workExperience }: Skillsprops) => {
                                 whileInView={{ opacity: [0, 1] }}
                                 transition={{ duration: 0.5 }}
                                 className="app__skills-item app__flex"
-                                key={ index}>
+                                key={index}>
                                 <div
                                     className="app__flex"
                                     style={{ backgroundColor: bgColor }}
@@ -65,7 +65,7 @@ const Skill = ({ data, experiences, workExperience }: Skillsprops) => {
                                                     className="app__skills-exp-work"
                                                     data-tip
                                                     data-for={name}
-                                                    key={ index}
+                                                    key={index}
                                                 >
                                                     <h4 className="bold-text">{name}</h4>
                                                     <p className="p-text">{company}</p>

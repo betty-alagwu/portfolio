@@ -48,6 +48,6 @@ const About = ({ data }: Aboutprops) => {
 
 
 export default AppWrap<Aboutprops>(
-    MotionWrap(About, 'app__about'), 
+    MotionWrap(About, 'app__about'),
     'about', 'app__whitebg'
-    )
+)

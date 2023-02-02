@@ -48,16 +48,17 @@ const Testimonial = ({ data, brands }: TestimonialProps) => {
             )}
             <div className="app__testimonial-brands app__flex">
                 {brands.map((brand, index) => {
-                    const {name, image} = brand
+                    const { name, image } = brand
                     return (
-                    <motion.div
-                        whileInView={{ opacity: [0, 1] }}
-                        transition={{ duration: 0.5, type: 'tween' }}
-                        key={index}
-                    >
-                        <img src={image.url} alt={name} />
-                    </motion.div>
-                )})}
+                        <motion.div
+                            whileInView={{ opacity: [0, 1] }}
+                            transition={{ duration: 0.5, type: 'tween' }}
+                            key={index}
+                        >
+                            <img src={image.url} alt={name} />
+                        </motion.div>
+                    )
+                })}
             </div>
         </>
     )
