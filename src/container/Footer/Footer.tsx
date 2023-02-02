@@ -1,61 +1,38 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import AppWrap from "../../wrapper/AppWrap"
 import MotionWrap from "../../wrapper/motionWrap"
 import { images } from '../../constants';
-// import { Contact as ContactInterface } from 'types/types';
-import { graphqlClient } from 'Contentful/graphql-client';
-import { gql } from 'graphql-request';
+import { ContactIput as ContactInterface } from 'types/types';
+import { createEntry } from 'contentful/contactEntry';
 
-
-// export interface ContactProps {
-//     data: ContactInterface[]
-// }
+export interface ContactProps {
+    data: ContactInterface[]
+}
 
 
 
-const Footer = () => {
+const Footer = ({ data }: ContactProps) => {
+    console.log({data}, 'this is the contact data')
     const [isFormSubmitted, setIsFormSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [values, setValues] = useState({ username: '', email: '', message: '' });
+    const [formData, setFormData] = useState({ username: '', email: '', message: '' });
 
-    const { username, email, message } = values;
-
-    const CREATE_CONTACT = gql`
-  mutation createContact($input: ContactInput!) {
-    createContact(input: $input) {
-      username
-      email
-      message
-    }
-  }
-`;
+   const {username, email, message} = formData
 
 
-    const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setValues({
-            ...values,
-            [event.target.name]: event.target.value
-        });
-    };
 
-    const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
+   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value }); 
+  };
+
+
+    const handleSubmit = async () => {
         setLoading(true)
-        try {
-            await graphqlClient.request(CREATE_CONTACT, {
-                input: {
-                    username: values.username,
-                    email: values.email,
-                    message: values.message,
-                }
-            });
-            console.log('Contact created successfully');
-            setLoading(false);
-            setIsFormSubmitted(true);
-        } catch (error) {
-            console.error(error);
-            setLoading(false);
-        }
+        createEntry(formData.username, formData.email, formData.message)
+        setLoading(false)
+        setIsFormSubmitted(true)
+
 
     }
 
@@ -106,4 +83,4 @@ export default AppWrap(
     MotionWrap(Footer, 'app__footer'),
     'contact',
     'app__whitebg',
-);
+  );

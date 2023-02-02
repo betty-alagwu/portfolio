@@ -1,12 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { gql } from 'graphql-request'
 import 'react-tooltip/dist/react-tooltip.css'
 import { About, Footer, Skill, Testimonial, Work, } from '@/container/'
 import { Navbar } from '@/components/Navbar'
-import { client } from 'Contentful/client'
 import { Header } from '../container'
-import { fetchAllCollection } from 'Contentful/graphql-client'
+import { fetchAllCollection } from 'contentful/graphql-client'
 import {
   About as AboutInterface,
   Work as WorkInterface,
@@ -15,8 +13,9 @@ import {
   WorkExperience as WorkExperienceInterface,
   Testimonial as TestimonialInterface,
   Brand as BrandInterface,
-  // ContactIput as ContactInterface
+  ContactIput as ContactInterface
 } from 'types/types'
+import { createEntry } from 'contentful/contactEntry'
 
 
 export interface HomePageProps {
@@ -27,7 +26,7 @@ export interface HomePageProps {
   workExperienceSectionResults: WorkExperienceInterface[]
   testimonialSectionResults: TestimonialInterface[]
   brandSectionResults: BrandInterface[]
-  // contactSectionResults: ContactInterface[]
+  contactResult: ContactInterface[]
 }
 
 const HomePage = ({
@@ -38,8 +37,8 @@ const HomePage = ({
   workExperienceSectionResults,
   testimonialSectionResults,
   brandSectionResults,
-  // contactSectionResults
-   }: HomePageProps) => {
+  contactResult
+}: HomePageProps) => {
   return (
     <div className="app">
       <Navbar />
@@ -51,8 +50,8 @@ const HomePage = ({
         workExperience={workExperienceSectionResults}
       />
       <Testimonial data={testimonialSectionResults}
-       brands={brandSectionResults} />
-      <Footer  />
+        brands={brandSectionResults} />
+      <Footer data={contactResult}/>
     </div>
   )
 }
@@ -61,6 +60,7 @@ const HomePage = ({
 
 export async function getStaticProps() {
   const results = await fetchAllCollection();
+  const contactResult = await createEntry('username', 'email', 'message');
 
   return {
     props: {
@@ -71,7 +71,7 @@ export async function getStaticProps() {
       workExperienceSectionResults: results.workExperienceCollection.items,
       testimonialSectionResults: results.testimonialCollection.items,
       brandSectionResults: results.brandCollection.items,
-      // contactSectionResults: results.contactCollection.items
+      contactResult
     }
   }
 }

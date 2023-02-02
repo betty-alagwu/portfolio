@@ -3,6 +3,7 @@ import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 import React, { useState } from 'react'
 import {images } from '../../constants'
+import Link from 'next/link';
 
 
 
@@ -28,9 +29,9 @@ const [toggle, setToggle] = useState(true)
                 {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
                     <li className="app__flex p-text" key={`link-${item}`}>
                         <div/>
-                        <a href={`#${item}`}>
+                        <Link href={`#${item}`}>
                             {item}
-                        </a>
+                        </Link>
                     </li>
                 ))}
             </ul>

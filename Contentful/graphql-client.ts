@@ -7,7 +7,6 @@ import {
   WorkExperience,
   Testimonial,
   Brand,
-  ContactIput
 } from "types/types";
 
 export const graphqlClient = new GraphQLClient(
@@ -15,7 +14,7 @@ export const graphqlClient = new GraphQLClient(
   {
     headers: {
       Authorization: `Bearer XNPE-YhemEyTmp1zv2bUO92vVN1WFudefQdLcZJkGvY`,
-    },
+    }
   }
 );
 
@@ -42,9 +41,6 @@ export function fetchAllCollection() {
     brandCollection: {
       items: Brand[];
     };
-    // contact:{
-    //   items: ContactIput[];
-    // };
   }>(gql`
     query fetchAllCollection {
       aboutCollection {
@@ -108,13 +104,9 @@ export function fetchAllCollection() {
           }
         }
       }
-      # contact {
-      #   items {
-      #     username
-      #     email
-      #     message
-      #   }
-      # }
+      
     }
   `);
 }
+
+

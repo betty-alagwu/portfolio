@@ -11,7 +11,6 @@ export interface Aboutprops {
 
 
 const About = ({ data }: Aboutprops) => {
-    // console.log({data}, 'This is the about componet')
 
     return (
         <>
