@@ -38,14 +38,6 @@ This project is a portfolio website for a software engineer. The website is desi
    git clone <your fork>
    ```
 
-3. Set up environment variables
-
-   ```
-   cp .env.example .env.local
-   ```
-
-   Update env variables with your environment viariables
-
 4. Run the development server:
 
    ```
