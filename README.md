@@ -1,38 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+<h1>Portfolio</h1>
+<h6><i>Software Engineer </i></h6>
+<h6><i>Technical Writter </i></h6>
+<hr />
+</div>
 
-## Getting Started
+This project is a portfolio website for a software engineer. The website is designed to showcase the software engineer's skills, projects, and experience. The website includes several sections such as a homepage, about section, work section, skills section, and contact section. 
 
-First, run the development server:
+<br/>
+<br/>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Feature List
+- Homepage: The homepage includes a brief introduction to the software engineer and their expertise. It also includes links to the engineer's social media profiles and resume.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- About Section: The about section provides more detailed information about the software engineer's background, experience, and skills.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- work Section: The work section showcases the software engineer's previous projects. Each project includes a brief description, and a link to the project websites.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- Skill Section: The skill section displays the technologies, skills and experiences in the past years. 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Contact Section: The contact section includes a form where visitors can submit inquiries, feedback, or requests for collaboration.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## General Setup
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Prerequisites
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   On all platforms:
 
-## Deploy on Vercel
+   - Install Node version 16.4.0
+   - Install [yarn](https://classic.yarnpkg.com/lang/en/docs/install)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Clone the repo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```
+   git clone <your fork>
+   ```
+
+3. Set up environment variables
+
+   ```
+   cp .env.example .env.local
+   ```
+
+   Update env variables with your environment viariables
+
+4. Run the development server:
+
+   ```
+   yarn dev
+
+## Architechture
+This project uses one service:
+
+1. Contentful for data storage
